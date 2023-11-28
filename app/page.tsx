@@ -2,8 +2,12 @@ import { CarCard, SearchBar } from '@/components'
 import Hero from '@/components/Hero'
 import { fetchCars } from '@/utils'
 
+interface allCars {
+  message: string
+}
+
 export default async function Home() {
-  const allCars:[] = await fetchCars()
+  const allCars:allCars = await fetchCars()
 
   const isDataEmpty = !Array.isArray(allCars) || allCars.length < 1 || !allCars
   return (
